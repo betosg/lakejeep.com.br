@@ -10,12 +10,10 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
     <link rel="shortcut icon" href="https://reweb-amp-static.nyc3.digitaloceanspaces.com/lakejeep-com-br/7d0dc6f00bdfc3df-jeep.png" />
-    <title>Comprar Jeep Wrangler em Cabo Frio - RJ
-</title>
-    <meta name="description" content="Comprar Jeep Wrangler em Cabo Frio - RJ
-">
+    <title>  Financiamento ZFlow  </title>
+    <meta name="description" content="  ">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="canonical" href="https://lakejeep.com.br/comprar-veiculo-jeep-wrangler.html">
+    <link rel="canonical" href="https://lakejeep.com.br/zflow.html">
 
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
@@ -73,349 +71,101 @@
     <nav class="header-01__nav">
       <ul class="nav__list">
 
-                <li class="nav__item" on="tap:AMP.setState({submenu_header: submenu_header == null ? false : !submenu_header , testess:(25 * results.items.results.length)})"
-          tabindex="" role="button">
-          <div class="nav__content">
-            <amp-img class="content__img" width="50" height="50" src="https://reweb-amp-static.nyc3.digitaloceanspaces.com/lakejeep-com-br/theme/62e1ab90dbc578e7-icon-phone.png"></amp-img>
-            <div class="content__text">
-
-              <p class="content__p1">Atendimento por</p>
-
-
-              <p class="content__p2">Telefone</p>
-
-            </div>
-          </div>
-
-          <div [hidden]="submenu_header" hidden class="nav__modal">
-            <ul class="modal__list">
-              <amp-list class="amp-list-tel" height="60"
-              src="https://api.amp.reweb.io/api/leadphones?domain_id=212&media=QUERY_PARAM(m)"[height]='(25 * results.items.results.length)' single-item >
-              <template type="amp-mustache">
-                
-                  {{#results}}
-                  {{#phone}}
-                  <li class="list__item">
-                      <a  class="item__link conversion" href="tel:{{ phone  }}">
-                        <p class="link__p1">{{name}}</p>
-                        <p class="link__p2">{{ phone }}</p>
-                      </a>
-                    </li>
-                    {{/phone}}
-                   {{/results}}
-                
-              </template>
-              </amp-list>
-            </ul>
-          </div>
-        </li>
         
-                        <!-- <li class="nav__item">
-          <div class="nav__content">
-            <amp-img class="content__img" width="50" height="50" src="https://reweb-amp-static.nyc3.digitaloceanspaces.com/lakejeep-com-br/theme/62e1ab90dbc578e7-icon-phone.png"></amp-img>
-            <div class="content__text">
-              <p class="content__p1"> <span>Clique aqui</span> que</p>
-              <p class="content__p2">Ligamos para você</p>
-            </div>
-          </div>
-        </li> -->
-              </ul>
+                      </ul>
     </nav>
 
   </section>
 
 
 </header>
-    
-<amp-state id="defaultStateBanner">
-  <script type="application/json">
-  {
-    "currentState":"general",
-    "general": {
-     "troca":"https://dealers.rewebmkt.com/images/20200326090021-mini.png"
+    <script>
+  function setPrice(data) {
+    var str = data.replace(/[^0-9\.\,]/g, "");
+    var decimal = parseFloat(str.replace(".", "").replace(",", "."), 2);
 
+    return decimal;
+  }
+
+  var url = window.location.search.replace("?", "");
+  var items = url.split("&");
+  var hash = {};
+  for (var i = 0; i < items.length; i++) {
+    var parametro = items[i].split("=");
+    var chave = parametro[0];
+    var valor = parametro[1];
+    hash[chave] = valor;
+  }
+  hash.telefone = decodeURIComponent(hash.telefone);
+  var ddd = hash.telefone.split(")", 1);
+  ddd = ddd[0].replace("(", "");
+  var telefone = hash.telefone.split(")");
+  telefone = telefone[1].replace("+", "");
+  telefone = telefone.replace("-", "");
+  var cpf = hash.cpf.replace("-", "");
+  cpf = cpf.replace(".", "");
+  cpf = cpf.replace(".", "");
+  hash.nome = hash.nome.replace("+", " ");
+  hash.carro = hash.carro.replace("+", " ");
+  hash.marca = hash.marca.replace("+", " ");
+  hash.email = decodeURIComponent(hash.email);
+  hash.preco = decodeURIComponent(hash.preco);
+  hash.preco = hash.preco.replace("+", " ");
+
+  console.log("ID:" + hash.externalClientId);
+  console.log("nome:" + hash.nome);
+  console.log("CPF:" + hash.cpf);
+  console.log("email:" + hash.email);
+  console.log("telefone:" + hash.telefone);
+  console.log("vendedor:" + hash.vendedor);
+  console.log("marca:" + hash.marca);
+  console.log("carro:" + hash.carro);
+  console.log("ano:" + hash.ano);
+  console.log("preco:" + setPrice(hash.preco));
+  console.log("novo:" + hash.novo);
+  console.log("ddd:" + ddd);
+  console.log("telefone:" + telefone);
+
+  var zflowData = {
+    elem: "zFlow",
+    client: "reweb",
+    from: "reweb",
+    transaction: {
+      externalClientId: hash.externalClientId,
+      client: {
+        name: hash.nome,
+        cpf: cpf,
+        email: hash.email,
+        personalPhones: [
+          {
+            areaCode: ddd,
+            number: telefone,
+            phoneType: "MOBILE"
+          }
+        ]
+      },
+      operationRequest: {
+        vehicleSellerDocument: hash.vendedor,
+        vehicleMake: hash.marca,
+        vehicleModel: hash.carro,
+        vehicleModelYear: hash.ano,
+        vehicleManufactureYear: hash.ano,
+        vehicleValue: setPrice(hash.preco),
+        newVehicle: hash.novo
+      }
     }
-   }
+  };
+
+  // Código para realizar Setup do Assistente
+  (function(d, t) {
+    var zf = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    zf.async = true;
+    zf.src = "https://channels.zflow.com.br/static/zflow.js";
+    s.parentNode.insertBefore(zf, s);
+  })(document, "script");
 </script>
-</amp-state>
-
-
-<main class="detail-01 container-fluid">
-  <section class="detail-01__banner">
-    <figure class="detail-01__banner--desk">
-            <amp-img  src="https://dealers.rewebmkt.com/images/20190703064340-bannao.png"
-                width="1920"
-                height="520"
-                >
-      </amp-img>
-          </figure>
-    <figure class="detail-01__banner--mobile">
-            <amp-img
-        width="600"
-        height="600"
-
-        src="https://dealers.rewebmkt.com/images/20200326085801-mob.png"
-        alt=""
-        ></amp-img>
-          </figure>
-  </section>
-
-  <section class="container  ">
-
-    <h1 class="detail-01__carName">Wrangler</h1>
-      <section class="detail-01__content">
-        <section class="teste">
-          <figure class="content__img">
-            <amp-img id="teste-foto"
-            src="https://dealers.rewebmkt.com/images/20200326090021-mini.png"
-              width="800" height="500"layout="responsive"
-              [src]="troca || defaultStateBanner[defaultStateBanner.currentState].troca"
-              >
-
-            </amp-img>
-          </figure>
-          <section class="content__description">
-                    <div class="description__colors">
-            <h2 class="colors__title">Cores</h2>
-            <ul class="colors__squares">
-                            <li role="button" tabindex
-                data-test="https://dealers.rewebmkt.com/images/20191217121903-branco.png"
-                style="background-color: #ffffff; width: 30px; height: 30px;"
-                on="tap:AMP.setState({troca:'https://dealers.rewebmkt.com/images/20191217121903-branco.png'})">
-              </li>
-                            <li role="button" tabindex
-                data-test="https://dealers.rewebmkt.com/images/20191217121903-preto.png"
-                style="background-color: #000000; width: 30px; height: 30px;"
-                on="tap:AMP.setState({troca:'https://dealers.rewebmkt.com/images/20191217121903-preto.png'})">
-              </li>
-                            <li role="button" tabindex
-                data-test="https://dealers.rewebmkt.com/images/20191217121903-cinza.png"
-                style="background-color: #303435; width: 30px; height: 30px;"
-                on="tap:AMP.setState({troca:'https://dealers.rewebmkt.com/images/20191217121903-cinza.png'})">
-              </li>
-                            <li role="button" tabindex
-                data-test="https://dealers.rewebmkt.com/images/20191217121903-prata.png"
-                style="background-color: #86827e; width: 30px; height: 30px;"
-                on="tap:AMP.setState({troca:'https://dealers.rewebmkt.com/images/20191217121903-prata.png'})">
-              </li>
-                          </ul>
-          </div>
-          
-                    </section>
-          <section class="detail-01__description">
-            <!--<h2 class="description__title"></h2>-->
-          <h3><strong>Leveza e fluidez</strong></h3>
-
-<p>Além de despojado e arrojado, o novo Jeep Wrangler possui combinações perfeitas para melhorar a aerodinâmica. A grade ligeiramente curva e bordas arredondadas auxiliam a diminuir o atrito.</p>
-
-        </section>
-      </section>
-      <div class="content__form">
-                <form
-            target="_top"
-            method="POST"
-            id="form-detail"
-            action-xhr="https://api.amp.reweb.io/api/lead/register"
-            on="submit-success:modal-confirmation,form-detail.clear"
-            >
-
-            <input type="hidden" name="utm_source" value="QUERY_PARAM(utm_source)" data-amp-replace="QUERY_PARAM" />
-            <input type="hidden" name="referencia_externa" value="EXTERNAL_REFERRER" data-amp-replace="EXTERNAL_REFERRER" />
-            <input type="hidden" name="referencia_documento" value="DOCUMENT_REFERRER" data-amp-replace="DOCUMENT_REFERRER" />
-            <input type="hidden" name="media" value="QUERY_PARAM(m)" data-amp-replace="QUERY_PARAM" />
-            <input type="hidden" name="meio_captacao" value="LP_FORM_DETALHE_NOVO" />
-
-                            <input type="hidden" name="amp_redirect_to" value="https://lakejeep.com.br/zflow.html">
-            
-                            <input type="hidden" name="amp_redirect_condition" value="simular_financiamento[Sim]">
-            
-                            <input type="hidden" name="vendedor" value="08647320000301	" />
-                <input type="hidden" name="externalClientId" value="36984" />
-                <input type="hidden" name="marca" value="Jeep" />
-                <input type="hidden" name="carro" value="Wrangler" />
-                <input type="hidden" name="ano" value="2020" />
-                <input type="hidden" name="novo" value="true" />  
-                      
-
-            <div class="form-group">
-                <h3 class="vw-title-form">SOLICITE COTAÇÃO</h3>
-            </div>
-
-                            <div class="form-group">
-                                            <input
-                                                                        on="input-throttled:AMP.setState({ zflow_name:event.value})"
-                                                                                                    type="text"
-                            name="nome"
-                            placeholder="Nome"
-                                                  required
-                            
-
-                            />
-                                        
-                                                            
-                                    </div>
-                                            <div class="form-group">
-                                        
-                                        <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                    
-                                                            on="input-throttled:AMP.setState({ zflow_email:event.value})"
-                                          />
-                                                            
-                                    </div>
-                                            <div class="form-group">
-                                            <input
-                                                                                                                        on="input-throttled:AMP.setState({ zflow_telefone:event.value})"
-                                                    type="text"
-                            name="telefone"
-                            placeholder="Telefone"
-                                                  required
-                            mask=(00)_00000-0000
-
-                            />
-                                        
-                                                            
-                                    </div>
-                                            <div class="form-group">
-                                        
-                                                                                            <input
-                                type="text"
-                                name="modelo"
-                                value="Wrangler"
-                                placeholder="Modelo"
-                                required
-                                                            />
-                                                                
-                                    </div>
-                                            <div class="form-group">
-                                        
-                                                            
-                                    </div>
-                                                    <div class="form-group">
-                    <label class="labelcheck" for="financiamento"> Deseja pré-aprovar o financiamento do veiculo?</label>
-                                <div class="divide">
-                                    <input class="check user-valid valid" type="radio" on="change:AMP.setState({
-                                    financiamento:false,financi:true,zflow_some:false, zflow_texto:'Continuar para aprovação de crédito'  }) " name="simular_financiamento" value="Sim">
-                                                    <label class="labelvalue" for="Sim">SIM</label>
-                                </div>
-                                    <div class="divide">
-                                                    <input class="check user-valid valid" type="radio" on="change:AMP.setState({
-                                                        financiamento:true,financi:false
-                                                        ,
-                                                    zflow_some:true
-                                                    , zflow_texto:'Enviar'  }) " name="simular_financiamento" value="Não">
-                                                    <label class="labelvalue" for="financiamento">NÃO</label>
-                                    </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="cpf" placeholder="CPF" mask="000.000.000-00" [hidden]="financiamento " [required]="financi"    on="input-throttled:AMP.setState({ zflow_cpf:event.value})"hidden="">
-                    </div>
-                                                        <div class="form-group">
-                                        
-                                                            
-                                            <textarea
-                            name="mensagem"
-                            cols="30"
-                            rows="5"
-                            placeholder="Mensagem"
-                            
-                                                        ></textarea>
-                                    </div>
-                                                        <div class="form-group">
-                    <input
-                        type="checkbox"
-                        name="0"
-                        value="0"
-                        id="checkbox"
-                        checked
-                        required
-                    >
-                                            <a class="politica" href="#" on="tap:AMP.setState({openModal: false})">
-                            Aceito as Políticas de Privacidade
-                        </a>
-                                    </div>
-            
-            <button class="btn" type="submit" [text]="zflow_texto ||  'Solicitar'" >
-                Solicitar
-            </button>
-        </form>
-                    </div>
-      </section>
-
-          <section class="detail-01__galary">
-
-      <h2 class="galary__title ">Galeria</h2>
-
-      <amp-carousel class="galary__images" height="250" layout="fixed-height" type="carousel" lightbox>
-                <amp-img src="https://dealers.rewebmkt.com/images/20190426090047-hh.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20190426090047-dddd.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20190426090047-a.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20190426090047-ffd.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20190426090047-5.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20190426090047-2.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20190426090048-u.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20190426090048-ff.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20190426090048-8.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074552-5.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074552-1.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-7.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-8.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-14.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-9.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-15.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-10.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-11.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-12.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-16.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-                <amp-img src="https://dealers.rewebmkt.com/images/20200326074553-17.png"
-                 width="400" height="250" alt="">
-        </amp-img>
-              </amp-carousel>
-    </section>
-    </main>
+<div id="zFlow"></div>
     
 
 
@@ -424,8 +174,7 @@
   {
     "currentState":"general",
     "general": {
-                        "active1":"active",
-                    "a":"a"
+            "a":"a"
 
     }
    }
@@ -435,44 +184,6 @@
 
 
 
-
-<section class=" maps container-fluid container">
-  <h2 class="info__title">Localização</h2>
-  <section class="location">
-    <section class="location__map">
-      <amp-iframe id="amp-iframe" title="Cute dog video" width="500" height="241" sandbox="allow-scripts  allow-popups"
-      allowfullscreen frameborder="0"        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.6032545205076!2d-42.03677048503462!3d-22.891109985019774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x971b26660bc2ff%3A0x42deccb7bab1e0e3!2sAv.%20Teixeira%20e%20Souza%2C%202045%20-%20Centro%2C%20Cabo%20Frio%20-%20RJ%2C%2028907-410!5e0!3m2!1spt-BR!2sbr!4v1586200578858!5m2!1spt-BR!2sbr"  layout="responsive" [src]="select">
-    </amp-iframe>
-    </section>
-    <section class="location__info
-
-
-          location__one
-    ">
-
-                  <address class="       active
-      " [class]=" active1 || defaultState[defaultState.currentState].active1 " on="tap:AMP.setState({select: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.6032545205076!2d-42.03677048503462!3d-22.891109985019774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x971b26660bc2ff%3A0x42deccb7bab1e0e3!2sAv.%20Teixeira%20e%20Souza%2C%202045%20-%20Centro%2C%20Cabo%20Frio%20-%20RJ%2C%2028907-410!5e0!3m2!1spt-BR!2sbr!4v1586200578858!5m2!1spt-BR!2sbr'
-                                  ,active1:'active'
-                          })">
-        <h3 class="info__name">Jeep Lake</h3>
-        <p class="info__address">Av. Teixeira e Souza, 2045 - Braga - Cabo Frio</p>
-        <amp-list class="amp-list-tel" height="20"
-        src="https://api.amp.reweb.io/api/leadphones?domain_id=212&media=QUERY_PARAM(m)&store_id=61194&label=Telefone"
-        single-item>
-        <template type="amp-mustache">
-          
-          {{#results}}
-          {{#phone}}
-          <p class="info__phone"> {{ label }}: {{ phone }}</p>
-          {{/phone}}
-          {{/results}}
-          
-        </template>
-      </amp-list>
-              </address>
-                </section>
-  </section>
-</section>
 
     <footer class="footer-01 container-fluid">
   <section class="container">
@@ -526,7 +237,7 @@
   </div><div tabindex="0" class="lightboxConfirmation">
     <div class="col-lg-12">
       <div class="lightbox-header">
-        <h3 class="texto-descritivo">Enviado com sucesso!</h3>
+        <h3 class="texto-descritivo"></h3>
                 <button on="tap:modal-confirmation.close " class="closeModal user-valid valid conversion">
           <span aria-hidden="true">X</span>
         </button>
